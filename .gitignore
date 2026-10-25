@@ -1,0 +1,23 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local call data
+calls/
+*.wav
+*.mp3
+
+# Generated data
+data/policy.db
+data/index/
+report/
+
+# macOS
+.DS_Store

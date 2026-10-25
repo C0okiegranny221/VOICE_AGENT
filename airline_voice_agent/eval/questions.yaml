@@ -1,0 +1,187 @@
+# Single-turn answer eval. DRAFT - expected answers were written from the source clauses and policy
+# tables on 2026-10-16 and need human review before results are treated as final.
+# must_contain: every item must appear in the answer (case-insensitive; numbers may be digits or words).
+# expected_sources: "doc_prefix :: section substring" - checked against retrieved passages and tool sources.
+# type: answerable | clarify (agent should ask for a missing detail) | unanswerable (should say it doesn't know)
+
+- id: bag-01
+  q: How much checked baggage can I take on a domestic economy flight?
+  expected_answer: One piece up to 15 kg free; excess charges above that.
+  must_contain: ["15"]
+  expected_sources: ["indigo_coc_domestic :: 11.2", "table :: baggage_allowance"]
+- id: bag-02
+  q: What's the hand baggage limit?
+  expected_answer: One hand bag up to 7 kg, max 55 x 35 x 25 cm, plus one personal article up to 3 kg.
+  must_contain: ["7"]
+  expected_sources: ["indigo_baggage_policy :: 3. Hand Baggage", "table :: baggage_allowance"]
+- id: bag-03
+  q: I'm flying international economy. What's my checked baggage allowance?
+  expected_answer: Two pieces, each up to 30 kg, depending on the sector; shown at booking.
+  must_contain: ["30"]
+  expected_sources: ["indigo_coc_international :: 11.2", "table :: baggage_allowance"]
+- id: bag-04
+  q: How much does an extra checked bag cost on a domestic flight?
+  expected_answer: INR 900 pre-booked or INR 1,000 at the airport per extra piece (max 2), plus per-kg excess charges for its weight.
+  must_contain: ["900", "1000"]
+  expected_sources: ["table :: baggage_charges"]
+- id: bag-05
+  q: I have an IndiGo Stretch seat on a domestic flight, how much luggage can I check in?
+  expected_answer: Up to 30 kg in two pieces.
+  must_contain: ["30"]
+  expected_sources: ["table :: baggage_allowance"]
+- id: bag-06
+  q: Can I carry a power bank in my checked bag?
+  expected_answer: No - power banks and spare lithium batteries are only allowed in hand baggage, kept within reach.
+  must_contain: ["hand"]
+  expected_sources: ["indigo_baggage_policy :: 2. Checked-in Baggage", "indigo_baggage_policy :: 8. Carriage of lithium batteries"]
+- id: bag-07
+  q: How much liquid can I carry in my cabin bag?
+  expected_answer: Containers of up to 100 ml, in a transparent resealable bag of up to 1 litre.
+  must_contain: ["100"]
+  expected_sources: ["indigo_baggage_policy :: 3. Hand Baggage", "table :: baggage_allowance"]
+- id: bag-08
+  q: Can I take alcohol in my checked luggage?
+  expected_answer: Up to 5 litres of alcoholic beverages in checked baggage, in retail packaging, subject to conditions.
+  must_contain: ["5"]
+  expected_sources: ["indigo_baggage_policy :: 11. Carriage of Alcoholic beverages"]
+- id: bag-09
+  q: I booked a Lite fare, do I get checked baggage?
+  expected_answer: Lite or similar promotional fares may not include checked baggage; it has to be paid for at the airport.
+  must_contain: []
+  expected_sources: ["indigo_baggage_policy :: 2. Checked-in Baggage", "table :: baggage_allowance"]
+- id: bag-10
+  q: My bag arrived damaged, how do I claim?
+  expected_answer: Report it under the Conditions of Carriage liability clause for damaged/delayed/lost checked baggage (time limits for notice apply).
+  must_contain: []
+  expected_sources: ["indigo_coc :: 17.3"]
+- id: chg-01
+  q: Can I cancel my ticket for free if I just booked it yesterday? It's a domestic flight next month.
+  expected_answer: Yes - the 48-hour look-in lets you cancel or change without a fee for direct website bookings when departure is at least 7 days away; fare difference applies to changes.
+  must_contain: ["48"]
+  expected_sources: ["indigo_coc_domestic :: Look In", "table :: change_cancellation_rules"]
+- id: chg-02
+  q: How close to departure can I still change my domestic booking?
+  expected_answer: Changes or cancellations must be made at least 3 hours before departure.
+  must_contain: ["3"]
+  expected_sources: ["indigo_coc_domestic :: 7.1", "table :: change_cancellation_rules"]
+- id: chg-03
+  q: What's the deadline to cancel an international booking before the flight?
+  expected_answer: At least 4 hours before departure; no-show charges apply within 4 hours.
+  must_contain: ["4"]
+  expected_sources: ["indigo_coc_international :: 7.1", "table :: change_cancellation_rules"]
+- id: chg-04
+  q: There's a spelling mistake in my name on a domestic ticket I booked on the website this morning.
+  expected_answer: A spelling correction is free within 24 hours of booking via customer care, for direct website/app bookings; name changes are not allowed.
+  must_contain: ["24"]
+  expected_sources: ["indigo_coc_domestic :: Name Correction", "table :: change_cancellation_rules"]
+- id: chg-05
+  q: What happens if I don't check in for my domestic flight on time?
+  expected_answer: If not checked in 60 minutes before departure the fare is retained; airport charges (excluding GST) are refunded.
+  must_contain: ["60"]
+  expected_sources: ["indigo_coc_domestic :: 7.4", "table :: change_cancellation_rules"]
+- id: chg-06
+  q: How much is the cancellation fee on a Saver fare?
+  expected_answer: The fee depends on the fare type chosen at booking; the collected documents don't list the amounts.
+  type: unanswerable
+  must_contain: []
+  expected_sources: ["table :: change_cancellation_rules"]
+- id: ref-01
+  q: I paid by credit card and cancelled. How long until I get my refund?
+  expected_answer: Within 7 working days of the refund request.
+  must_contain: ["7"]
+  expected_sources: ["indigo_coc :: Refunds", "table :: refund_timelines"]
+- id: ref-02
+  q: I booked through MakeMyTrip and cancelled a domestic flight. When do I get the money?
+  expected_answer: IndiGo refunds the travel agent; if not received from the agent within 14 working days, contact IndiGo.
+  must_contain: ["14"]
+  expected_sources: ["table :: refund_timelines"]
+- id: ref-03
+  q: How long does a refund take on an American Express card?
+  expected_answer: Within 21 working days.
+  must_contain: ["21"]
+  expected_sources: ["table :: refund_timelines"]
+- id: ref-04
+  q: How long will my refund take?
+  expected_answer: Should ask how the ticket was paid for (card/wallet 7 working days, Amex 21, travel agent differs).
+  type: clarify
+  must_contain: []
+  expected_sources: []
+- id: dly-01
+  q: My two hour domestic flight is delayed by two and a half hours. Am I entitled to anything?
+  expected_answer: Yes - free meals and refreshments (block time up to 2.5 h, delay 2 h or more), if checked in on time and not due to extraordinary circumstances.
+  must_contain: ["meal"]
+  expected_sources: ["dgca :: 3.4", "table :: delay_entitlements"]
+- id: dly-02
+  q: My domestic flight is delayed by seven hours. What are my options?
+  expected_answer: Choice of an alternate flight within 6 hours or a full refund; meals; (hotel if overnight / night departure).
+  must_contain: ["refund"]
+  expected_sources: ["dgca :: 3.4", "table :: delay_entitlements"]
+- id: dly-03
+  q: My flight is delayed. What do I get?
+  expected_answer: Should ask how long the delay is and how long the flight is.
+  type: clarify
+  must_contain: []
+  expected_sources: []
+- id: dly-04
+  q: My flight was delayed because of bad weather. Do I get compensation?
+  expected_answer: DGCA facilities/compensation are not owed for extraordinary circumstances such as weather.
+  must_contain: []
+  expected_sources: ["dgca :: 3.4", "dgca :: 1. INTRODUCTION", "table :: delay_entitlements"]
+- id: dnb-01
+  q: I was denied boarding because the flight was overbooked and they put me on a flight 5 hours later. My fare was 4000 rupees. What compensation do I get?
+  expected_answer: 200% of the one-way basic fare plus fuel charge, capped at INR 10,000 - INR 8,000 for a 4,000 fare.
+  must_contain: ["8000"]
+  expected_sources: ["dgca :: 3.2 Denied Boarding", "table :: denied_boarding_compensation"]
+- id: dnb-02
+  q: I was denied boarding but they found me a flight 45 minutes later. Do I get anything?
+  expected_answer: No compensation when the alternate flight departs within one hour.
+  must_contain: []
+  expected_sources: ["dgca :: 3.2 Denied Boarding", "table :: denied_boarding_compensation"]
+- id: cxl-01
+  q: IndiGo cancelled my 90 minute flight three hours before departure. My fare was 6000. What compensation do I get?
+  expected_answer: Full refund plus compensation of INR 6,000 (the lesser of INR 7,500 and the fare plus fuel charge) for a 1-2 hour block time, unless due to extraordinary circumstances.
+  must_contain: ["6000"]
+  expected_sources: ["dgca :: 3.3 Cancellation", "table :: cancellation_compensation"]
+- id: dng-01
+  q: I was downgraded from business to economy on a domestic flight. How much do I get back?
+  expected_answer: 75% of the ticket cost including taxes.
+  must_contain: ["75"]
+  expected_sources: ["dgca :: 3.5 Downgrading", "table :: downgrade_reimbursement"]
+- id: spc-01
+  q: I'm 30 weeks pregnant. Can I fly with IndiGo?
+  expected_answer: As per the Conditions of Carriage special assistance / pregnancy rules (medical certificate requirements by stage of pregnancy).
+  must_contain: []
+  expected_sources: ["indigo_coc :: 10. Customer's Responsibility"]
+- id: oos-01
+  q: Can you tell me the status of my PNR AB12CD?
+  expected_answer: Asks for the passenger's last name so it can look the booking up (it needs both PNR and last name).
+  type: clarify
+  must_contain: []
+  expected_sources: []
+# Booking lookups against the FICTIONAL demo bookings in data/mock/bookings.json (added 2026-10-16).
+- id: bk-01
+  q: My PNR is M4D8RT and my last name is Sharma. My flight is delayed, what do I get?
+  expected_answer: Free meals and refreshments - the 1 h 15 min flight is delayed about 3 h 10 min (threshold 2 h for flights up to 2.5 h); not owed for extraordinary circumstances. No alternate-or-refund option (that needs over 6 h).
+  must_contain: ["meal"]
+  expected_sources: ["table :: delay_entitlements"]
+- id: bk-02
+  q: PNR Z9F3LW, surname Qureshi. My Dubai flight got cancelled, what compensation do I get?
+  expected_answer: Notified about 11.5 h before departure (under 24 h), flight over 2 h, so a full refund plus compensation of INR 10,000 (lesser of 10,000 and fare+fuel 14,200), unless due to extraordinary circumstances; or an alternate flight instead.
+  must_contain: ["10000"]
+  expected_sources: ["table :: cancellation_compensation"]
+- id: bk-03
+  q: My PNR is P5V1CJ, last name Das. I was bumped off my flight because it was overbooked. What do I get?
+  expected_answer: Alternate flight left about 6.4 h later (within 24 h), so 200% of the one-way basic fare plus fuel (3,800) = INR 7,600, under the 10,000 cap.
+  must_contain: ["7600"]
+  expected_sources: ["table :: denied_boarding_compensation"]
+- id: bk-04
+  q: PNR T2H6NB, last name Iyer. I booked yesterday, can I cancel for free?
+  expected_answer: No - the 48-hour look-in needs the international departure to be at least 15 days after booking, and this flight departs in about 5 days; the fare type's cancellation fee applies, and cancellation must be at least 4 hours before departure.
+  must_contain: ["15"]
+  expected_sources: ["table :: change_cancellation_rules"]
+- id: bk-05
+  q: My PNR is K7Q2PX and my last name is Kapoor. Is my flight on time?
+  expected_answer: No booking matches that PNR and last name; asks the caller to check both. Must not reveal any booking details.
+  type: clarify
+  must_contain: []
+  expected_sources: []

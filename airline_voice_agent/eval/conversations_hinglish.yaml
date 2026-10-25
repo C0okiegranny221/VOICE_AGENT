@@ -1,0 +1,22 @@
+# Hinglish multi-turn memory tests. DRAFT - review before treating results as final.
+- id: hmem-booking-carry-over
+  turns:
+    - say: Mera PNR K7Q2PX hai, last name Mehta. Flight kitne baje hai?
+      check: Gives the 7:15 am departure (Delhi to Mumbai, 18 October), in Hinglish.
+    - say: Aur kitna checked baggage le ja sakti hoon?
+      check: Uses the booking (domestic economy) to give 15 kg in one piece without asking the route again, in Hinglish.
+      must_contain: ["15"]
+- id: hmem-recall-first-question
+  turns:
+    - say: Hand baggage kitna allowed hai?
+    - say: Aur power bank le ja sakte hain?
+    - say: Maine pehla sawaal kya poocha tha?
+      check: Recalls that the first question was about the hand baggage allowance.
+- id: hmem-language-switch
+  turns:
+    - say: How much is the extra checked bag fee on a domestic flight if I pre-book it?
+      check: Answers in English with INR 900.
+      must_contain: ["900"]
+    - say: Achha, aur airport pe kitna lagega?
+      check: Switches to Hinglish and gives the airport price for the same extra domestic bag (INR 1,000).
+      must_contain: ["1000"]

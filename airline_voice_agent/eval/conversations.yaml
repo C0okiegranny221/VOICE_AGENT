@@ -1,0 +1,46 @@
+# Multi-turn memory tests. DRAFT - review before treating results as final.
+# Each conversation is replayed turn by turn through the text pipeline. `check` on a turn is judged
+# against the whole conversation so far; must_contain items must appear in that turn's answer.
+- id: mem-recall-first-question
+  turns:
+    - say: How much hand baggage can I carry?
+    - say: And can I bring a power bank?
+    - say: What was the first thing I asked you?
+      check: Recalls that the first question was about hand baggage allowance.
+- id: mem-repeat-exact-figure
+  turns:
+    - say: How much does an extra checked bag cost on a domestic flight if I book it in advance?
+    - say: Okay. And what's the cabin bag weight limit?
+    - say: Sorry, what was the price for the extra bag again?
+      check: Repeats the same pre-book price as before (INR 900) without changing it.
+      must_contain: ["900"]
+- id: mem-resolve-reference
+  turns:
+    - say: My domestic flight is delayed by seven hours.
+    - say: Does that also apply if I booked through a travel agent?
+      check: Understands "that" as the delay entitlements (alternate flight or refund) from the previous answer.
+- id: mem-carry-route-type
+  turns:
+    - say: I'm flying international next week, Delhi to Dubai.
+    - say: How much checked baggage can I take?
+      check: Uses the international allowance (30 kg per piece, 2 pieces) without asking domestic or international again.
+      must_contain: ["30"]
+- id: mem-correction
+  turns:
+    - say: I'm on a domestic flight. How much checked baggage do I get?
+    - say: Sorry, I made a mistake, it's actually an international flight to Singapore.
+      check: Corrects the answer to the international allowance (30 kg, 2 pieces).
+      must_contain: ["30"]
+- id: mem-clarify-then-answer
+  turns:
+    - say: How long will my refund take?
+    - say: I paid with my credit card.
+      check: Gives the card refund time (7 working days) using the payment detail from this turn.
+      must_contain: ["7"]
+- id: mem-booking-facts-carry-over
+  turns:
+    - say: Hi, my PNR is K7Q2PX, last name Mehta. What time is my flight?
+      check: Gives the 7:15 am departure (Delhi to Mumbai, 18 October) from the booking.
+    - say: And how much checked baggage can I take?
+      check: Uses the booking (domestic, economy) to give 15 kg in one piece without asking domestic or international.
+      must_contain: ["15"]

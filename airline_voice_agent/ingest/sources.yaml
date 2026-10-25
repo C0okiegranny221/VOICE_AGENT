@@ -1,0 +1,45 @@
+# One entry per source PDF in data/pdfs/.
+#   get: pdf    -> download the PDF from source_url
+#   get: print  -> source is a web page; print it to PDF with headless Chrome (no HTML parsing).
+#                  Optional `tab:` selects a page tab first; all accordions are expanded before printing.
+#   get: manual -> PDF is placed in data/pdfs/ by hand
+# headings (optional): numbered (default) | accordion - see ingest/parse.py
+# jurisdiction (optional): india (default) | by_heading (use the level-1 heading, e.g. a region)
+# route_scope (optional): domestic | international | both  (default for the whole doc; chunk rules may refine)
+
+- doc_id: dgca_car_m4_disruptions
+  title: "DGCA CAR Sec 3 Series M Part IV - Denied boarding, cancellations and delays"
+  source_url: "https://www.dgca.gov.in/digigov-portal/Upload?flag=iframeAttachView&attachId=we1PSlOuQhYdHcwKKrm7ew%3D%3D"
+  get: pdf
+  route_scope: both
+
+- doc_id: indigo_coc_domestic
+  title: "IndiGo Conditions of Carriage (Domestic)"
+  source_url: "https://www.goindigo.in/information/conditions-of-carriage.html"
+  get: print
+  tab: Domestic
+  route_scope: domestic
+  headings: accordion
+
+- doc_id: indigo_coc_international
+  title: "IndiGo Conditions of Carriage (International)"
+  source_url: "https://www.goindigo.in/information/conditions-of-carriage.html"
+  get: print
+  tab: International
+  route_scope: international
+  headings: accordion
+
+- doc_id: indigo_passenger_rights
+  title: "IndiGo Passenger Rights"
+  source_url: "https://www.goindigo.in/information/conditions-of-carriage.html"
+  get: print
+  tab: Passenger Rights
+  route_scope: both
+  headings: accordion
+  jurisdiction: by_heading   # region tabs: europe / thailand / vietnam
+
+- doc_id: indigo_baggage_policy
+  title: "IndiGo Baggage Policy"
+  source_url: "https://www.goindigo.in/information/baggage-policy.html"
+  get: print
+  route_scope: both

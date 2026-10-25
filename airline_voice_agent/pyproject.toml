@@ -1,0 +1,38 @@
+[project]
+name = "airline-voice-agent"
+version = "0.1.0"
+description = "POC voice agent for IndiGo / DGCA policy questions: local STT/TTS, hybrid RAG, Claude"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "anthropic>=0.70",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+    "httpx>=0.27",
+    "pymupdf>=1.24",
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "lancedb>=0.13",
+    "tantivy>=0.22",
+    "sentence-transformers>=3.0",
+    "torch>=2.3",
+    "sounddevice>=0.4.7",
+    "silero-vad>=5.1",
+    "mlx-whisper>=0.4",
+    "kokoro>=0.9",
+    "soundfile>=0.12",
+    "playwright>=1.64.0",
+    "en-core-web-sm",
+    "openai>=3.31.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+en-core-web-sm = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

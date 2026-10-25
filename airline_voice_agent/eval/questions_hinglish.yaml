@@ -1,0 +1,96 @@
+# Hinglish answer eval. DRAFT (2026-10-16) - expected answers written from the policy tables / clauses and need
+# human review. Questions are mostly in Roman-script Hinglish, as the Hinglish STT writes them; two are Devanagari.
+# expect_language: the reply should be in Hindi script (Devanagari) for these items.
+- id: h-01
+  q: Domestic flight mein kitna checked baggage free hai?
+  expected_answer: One piece up to 15 kg free on a domestic economy booking.
+  must_contain: ["15"]
+  expected_sources: ["table :: baggage_allowance", "indigo_coc_domestic :: 11.2"]
+  expect_language: hinglish
+- id: h-02
+  q: Hand baggage kitne kg tak le ja sakte hain?
+  expected_answer: One hand bag up to 7 kg (55 x 35 x 25 cm), plus a personal article up to 3 kg.
+  must_contain: ["7"]
+  expected_sources: ["table :: baggage_allowance", "indigo_baggage_policy :: 3. Hand Baggage"]
+  expect_language: hinglish
+- id: h-03
+  q: Domestic flight pe extra bag pehle se book karun toh kitna charge lagega?
+  expected_answer: INR 900 per extra piece pre-booked (INR 1,000 at the airport), plus per-kg excess charges for its weight.
+  must_contain: ["900"]
+  expected_sources: ["table :: baggage_charges"]
+  expect_language: hinglish
+- id: h-04
+  q: Kya main power bank checked bag mein rakh sakta hoon?
+  expected_answer: No - power banks are allowed only in hand baggage, kept within reach.
+  must_contain: []
+  expected_sources: ["indigo_baggage_policy :: 2. Checked-in Baggage", "indigo_baggage_policy :: 8. Carriage of lithium batteries"]
+  expect_language: hinglish
+- id: h-05
+  q: Credit card se payment kiya tha, refund kitne din mein aayega?
+  expected_answer: Within 7 working days of the refund request.
+  must_contain: ["7"]
+  expected_sources: ["table :: refund_timelines"]
+  expect_language: hinglish
+- id: h-06
+  q: Meri do ghante ki domestic flight teen ghante late hai, kya milega?
+  expected_answer: Free meals and refreshments (block time up to 2.5 h, delay 2 h or more), if checked in on time and not due to extraordinary circumstances.
+  must_contain: []
+  expected_sources: ["table :: delay_entitlements"]
+  expect_language: hinglish
+- id: h-07
+  q: Overbooking ki wajah se boarding deny ho gayi, dusri flight paanch ghante baad hai, mera fare 4000 tha. Kitna compensation milega?
+  expected_answer: 200% of the one-way basic fare plus fuel charge, capped at INR 10,000 - INR 8,000 for a 4,000 fare.
+  must_contain: ["8000"]
+  expected_sources: ["table :: denied_boarding_compensation"]
+  expect_language: hinglish
+- id: h-08
+  q: Ticket pe naam ki spelling galat hai, aaj hi website se book kiya hai, domestic flight hai.
+  expected_answer: A spelling correction is free within 24 hours of booking via customer care, for direct website/app bookings; the name itself can't be changed.
+  must_contain: ["24"]
+  expected_sources: ["table :: change_cancellation_rules"]
+  expect_language: hinglish
+- id: h-09
+  q: Kal domestic ticket book kiya website se, flight agle mahine hai. Free mein cancel ho jayega kya?
+  expected_answer: Yes - within 48 hours of booking (look-in) a direct website booking can be cancelled without a fee when departure is at least 7 days away.
+  must_contain: ["48"]
+  expected_sources: ["table :: change_cancellation_rules", "indigo_coc_domestic :: Look In"]
+  expect_language: hinglish
+- id: h-10
+  q: Mera PNR Z9F3LW hai, last name Qureshi. Flight cancel ho gayi, compensation milega?
+  expected_answer: Notified about 11.5 h before departure, so a full refund plus INR 10,000 compensation (or an alternate flight), unless due to extraordinary circumstances.
+  must_contain: ["10000"]
+  expected_sources: []
+  expect_language: hinglish
+- id: h-11
+  q: PNR P5V1CJ, naam Das. Mujhe overbooking ki wajah se flight mein nahi chadhne diya, ab kya milega?
+  expected_answer: Alternate flight about 6.4 h later, so 200% of the 3,800 fare = INR 7,600 compensation.
+  must_contain: ["7600"]
+  expected_sources: []
+  expect_language: hinglish
+- id: h-12
+  q: मेरी फ्लाइट कैंसिल हो गई, मुझे क्या मिलेगा?
+  expected_answer: Should ask for the PNR (and last name) or the missing details (how much notice was given, flight duration) before stating compensation.
+  type: clarify
+  must_contain: []
+  expected_sources: []
+  expect_language: hinglish
+- id: h-13
+  q: Flight delay hai, kya milega?
+  expected_answer: Should ask how long the delay is and how long the flight is (or for the PNR).
+  type: clarify
+  must_contain: []
+  expected_sources: []
+  expect_language: hinglish
+- id: h-14
+  q: Mera PNR AB12CD hai, status batao.
+  expected_answer: Asks for the passenger's last name to look the booking up.
+  type: clarify
+  must_contain: []
+  expected_sources: []
+  expect_language: hinglish
+- id: h-15
+  q: मैं तीस हफ्ते की प्रेग्नेंट हूँ, क्या मैं फ्लाई कर सकती हूँ?
+  expected_answer: As per the Conditions of Carriage pregnancy rules (requirements depend on the stage of pregnancy, e.g. a medical certificate).
+  must_contain: []
+  expected_sources: ["indigo_coc :: 10. Customer's Responsibility"]
+  expect_language: hinglish

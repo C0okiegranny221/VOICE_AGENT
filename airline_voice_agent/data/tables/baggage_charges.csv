@@ -1,0 +1,6 @@
+route_type,item,booked_via,amount_inr,notes,source_doc,section,page,source_quote,human_verified_on
+domestic,additional_piece,pre_book,900,"Per extra piece, maximum 2 extra pieces; per-kg excess charges also apply to the extra piece's weight.",indigo_coc_domestic,11.2,14,"Pre-Book Charges (Subject to Maximum of up to 2 Pieces) INR 900",
+domestic,additional_piece,airport,1000,"Per extra piece, maximum 2 extra pieces; per-kg excess charges also apply.",indigo_coc_domestic,11.2,14,"Airport Charges INR 1000",
+international,additional_piece,pre_book,1800,"Per extra piece, maximum 2 extra pieces; per-kg excess charges also apply.",indigo_coc_international,11.2,15,"Pre-Book Charges (Subject to Maximum of up to 2 Pieces) INR 1800",
+international,additional_piece,airport,2000,"Per extra piece, maximum 2 extra pieces; per-kg excess charges also apply.",indigo_coc_international,11.2,15,"Airport Charges INR 2000",
+any,special_items_call_centre_surcharge,call_centre,,"10% of the applicable special-item charge when booked through the call centre (sports equipment, musical instruments, TVs, etc.). Per-kg excess rates are not stated in the collected documents.",indigo_baggage_policy,2. Checked-in Baggage,2,"an additional amount of 10% (ten per cent) of the applicable charges will apply",

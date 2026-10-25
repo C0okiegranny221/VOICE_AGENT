@@ -1,0 +1,5 @@
+route_type,distance_min_km,distance_max_km,percent_of_ticket,notes,source_doc,section,page,source_quote,human_verified_on
+domestic,,,75,"Percent of ticket cost including taxes, for involuntary downgrade.",dgca_car_m4_disruptions,3.5 Downgrading,6,"For domestic sector:-75% of the cost of ticket including taxes.",
+international,0,1500,30,"Percent of ticket cost including taxes.",dgca_car_m4_disruptions,3.5 Downgrading,6,"30% of the cost of ticket including taxes for flights of 1500 km or less.",
+international,1500,3500,50,"Percent of ticket cost including taxes.",dgca_car_m4_disruptions,3.5 Downgrading,6,"50% of the cost of ticket including taxes for flights between 1500 km to 3500 km.",
+international,3500,,75,"Percent of ticket cost including taxes.",dgca_car_m4_disruptions,3.5 Downgrading,6,"75% of the cost of ticket including taxes for flights more than 3500 km.",

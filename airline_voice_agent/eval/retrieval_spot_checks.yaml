@@ -1,0 +1,47 @@
+# Retrieval spot checks (not the full answer eval - that is questions.yaml in milestone 3).
+# A check passes at k if any of the top-k results matches any `expect` entry, where an entry is
+# "doc_id_prefix :: section substring" (doc_id prefix may be empty to match any document).
+- q: how much cabin baggage can I carry
+  expect: ["indigo_baggage_policy :: 3. Hand Baggage", "indigo_coc :: 11.2"]
+- q: my flight is delayed by 3 hours what do I get
+  expect: ["dgca :: 3.4 Delays in Flight"]
+- q: can I carry a power bank
+  expect: ["indigo_baggage_policy :: 8. Carriage of lithium batteries"]
+- q: how long does a refund take
+  expect: ["indigo_coc :: Refunds"]
+- q: what compensation do I get if I am denied boarding
+  expect: ["dgca :: 3.2 Denied Boarding"]
+- q: my flight from Amsterdam was cancelled, what are my rights
+  expect: ["indigo_passenger_rights :: Europe"]
+- q: what about for infants?
+  previous: what is the baggage allowance
+  route: international
+  expect: ["indigo_baggage_policy :: 3. Hand Baggage", "indigo_coc :: 9.1 Checking-In"]
+- q: can I cancel within 48 hours for free
+  route: domestic
+  expect: ["indigo_coc :: Look In"]
+- q: I need a wheelchair at the airport
+  expect: ["indigo_coc :: 10. Customer's Responsibility"]
+- q: my bag was damaged, how do I claim
+  expect: ["indigo_coc :: 17.3"]
+- q: IndiGo cancelled my flight, what are my options
+  expect: ["dgca :: 3.3 Cancellation of Flight", "indigo_coc :: 14."]
+- q: how do I do web check-in
+  expect: ["indigo_coc :: 9.2 Web Check-in"]
+- q: how early do I need to reach the airport for check-in
+  expect: ["indigo_coc :: 9.1 Checking-In"]
+- q: can I carry alcohol in my bag
+  expect: ["indigo_baggage_policy :: 11. Carriage of Alcoholic beverages"]
+- q: I am pregnant, can I fly
+  expect: ["indigo_coc :: 10. Customer's Responsibility"]
+- q: there is a spelling mistake in my name on the ticket
+  route: domestic
+  expect: ["indigo_coc :: Name Correction"]
+- q: I was moved to a lower class, do I get money back
+  expect: ["dgca :: 3.5 Downgrading", "indigo_coc :: 17.5"]
+- q: can I carry a gun for sport shooting
+  expect: ["indigo_baggage_policy :: 6. Carriage of firearm"]
+- q: my flight from Bangkok was delayed five hours, what compensation
+  expect: ["indigo_passenger_rights :: Thailand"]
+- q: how do I file a complaint with IndiGo
+  expect: ["indigo_coc :: 21. Customer Grievance", "dgca :: 3.9 Passenger Redressal"]

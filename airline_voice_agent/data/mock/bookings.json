@@ -1,0 +1,84 @@
+{
+  "_notice": "FICTIONAL DEMO DATA. These PNRs, passengers and flights are invented for testing the voice agent. They are not real IndiGo bookings; flight numbers and times are made up.",
+  "bookings": [
+    {
+      "pnr": "K7Q2PX",
+      "scenario": "on time, domestic, booked on the website",
+      "passengers": [{"name": "Riya Mehta", "last_name": "Mehta", "type": "adult", "seat": "14C"}],
+      "segments": [{
+        "flight_no": "6E 2041", "from": "DEL", "from_city": "Delhi", "to": "BOM", "to_city": "Mumbai",
+        "scheduled_departure": "2026-10-18T07:15:00+05:30", "scheduled_arrival": "2026-10-18T09:25:00+05:30",
+        "terminal": "T1", "status": "on_time"
+      }],
+      "product": "economy", "fare_type": "Saver",
+      "one_way_base_fare_plus_fuel_inr": 4650, "total_paid_inr": 5980,
+      "payment_mode": "card_or_wallet", "booked_via": "indigo_website", "booked_at": "2026-10-02T21:10:00+05:30",
+      "checked_baggage": "15 kg included", "add_ons": ["Seat 14C (aisle)"], "check_in": "not checked in"
+    },
+    {
+      "pnr": "M4D8RT",
+      "scenario": "delayed 3 h 10 min on a 1 h 15 min domestic flight - meals owed",
+      "passengers": [
+        {"name": "Arjun Sharma", "last_name": "Sharma", "type": "adult", "seat": "21A"},
+        {"name": "Neha Sharma", "last_name": "Sharma", "type": "adult", "seat": "21B"}
+      ],
+      "segments": [{
+        "flight_no": "6E 0617", "from": "BLR", "from_city": "Bengaluru", "to": "HYD", "to_city": "Hyderabad",
+        "scheduled_departure": "2026-10-16T18:40:00+05:30", "scheduled_arrival": "2026-10-16T19:55:00+05:30",
+        "terminal": "T1", "status": "delayed", "delay_minutes": 190,
+        "revised_departure": "2026-10-16T21:50:00+05:30", "reason": "late arrival of incoming aircraft"
+      }],
+      "product": "economy", "fare_type": "Saver",
+      "one_way_base_fare_plus_fuel_inr": 3200, "total_paid_inr": 8460,
+      "payment_mode": "travel_agent", "booked_via": "MakeMyTrip (travel agent)", "booked_at": "2026-09-20T11:45:00+05:30",
+      "checked_baggage": "15 kg included per passenger", "add_ons": [], "check_in": "checked in"
+    },
+    {
+      "pnr": "Z9F3LW",
+      "scenario": "international flight cancelled with under 24 h notice - compensation owed",
+      "passengers": [{"name": "Sana Qureshi", "last_name": "Qureshi", "type": "adult", "seat": "8F"}],
+      "segments": [{
+        "flight_no": "6E 1463", "from": "DEL", "from_city": "Delhi", "to": "DXB", "to_city": "Dubai",
+        "scheduled_departure": "2026-10-17T21:30:00+05:30", "scheduled_arrival": "2026-10-17T23:55:00+04:00",
+        "terminal": "T3", "status": "cancelled", "cancellation_notified_at": "2026-10-17T10:00:00+05:30",
+        "reason": "operational reasons"
+      }],
+      "product": "economy", "fare_type": "Flexi",
+      "one_way_base_fare_plus_fuel_inr": 14200, "total_paid_inr": 17890,
+      "payment_mode": "american_express", "booked_via": "indigo_website", "booked_at": "2026-09-28T09:05:00+05:30",
+      "checked_baggage": "2 pieces, 30 kg each", "add_ons": ["Fast Forward"], "check_in": "not checked in"
+    },
+    {
+      "pnr": "T2H6NB",
+      "scenario": "international with an infant, booked yesterday, departs in 4 days - look-in not available",
+      "passengers": [
+        {"name": "Lakshmi Iyer", "last_name": "Iyer", "type": "adult", "seat": "3C"},
+        {"name": "Aditi Iyer", "last_name": "Iyer", "type": "infant", "seat": "on lap"}
+      ],
+      "segments": [{
+        "flight_no": "6E 1027", "from": "MAA", "from_city": "Chennai", "to": "SIN", "to_city": "Singapore",
+        "scheduled_departure": "2026-10-20T23:45:00+05:30", "scheduled_arrival": "2026-10-21T06:35:00+08:00",
+        "terminal": "T2", "status": "on_time"
+      }],
+      "product": "economy", "fare_type": "Saver",
+      "one_way_base_fare_plus_fuel_inr": 12800, "total_paid_inr": 16950,
+      "payment_mode": "card_or_wallet", "booked_via": "indigo_website", "booked_at": "2026-10-15T20:30:00+05:30",
+      "checked_baggage": "2 pieces, 30 kg each (adult)", "add_ons": ["Infant fee"], "check_in": "not checked in"
+    },
+    {
+      "pnr": "P5V1CJ",
+      "scenario": "denied boarding (overbooked), alternate flight 6 h 25 min later - compensation owed",
+      "passengers": [{"name": "Ananya Das", "last_name": "Das", "type": "adult", "seat": null}],
+      "segments": [{
+        "flight_no": "6E 0379", "from": "CCU", "from_city": "Kolkata", "to": "GAU", "to_city": "Guwahati",
+        "scheduled_departure": "2026-10-16T13:05:00+05:30", "scheduled_arrival": "2026-10-16T14:20:00+05:30",
+        "terminal": "T1", "status": "denied_boarding", "reason": "flight overbooked",
+        "alternate_flight": {"flight_no": "6E 0381", "departure": "2026-10-16T19:30:00+05:30"}
+      }],
+      "product": "economy", "fare_type": "Saver",
+      "one_way_base_fare_plus_fuel_inr": 3800, "total_paid_inr": 4920,
+      "payment_mode": "card_or_wallet", "booked_via": "indigo_app", "booked_at": "2026-10-01T08:15:00+05:30",
+      "checked_baggage": "15 kg included", "add_ons": [], "check_in": "checked in"
+    }
+  ]
+}

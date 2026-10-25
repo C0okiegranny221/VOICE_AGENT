@@ -1,0 +1,25 @@
+# Hinglish retrieval spot checks, written as the Hinglish STT transcribes speech (Roman script), plus Devanagari.
+- q: Meri flight tin ghante late hai, mujhe kya milega?
+  expect: ["dgca :: 3.4 Delays in Flight"]
+- q: Domastic flight mein kitna baggage allowed hai?
+  expect: ["indigo_coc :: 11.2", "indigo_baggage_policy :: 2. Checked-in Baggage"]
+- q: Refund kitne din mein aaega?
+  expect: ["indigo_coc :: Refunds"]
+- q: Kya main power bank le ja sakta hoon?
+  expect: ["indigo_baggage_policy :: 8. Carriage of lithium batteries", "indigo_baggage_policy :: 2. Checked-in Baggage"]
+- q: Mera flight cancel ho gaya, compensation milega kya?
+  expect: ["dgca :: 3.3 Cancellation of Flight"]
+- q: Hand baggage kitne kg tak le ja sakte hain?
+  expect: ["indigo_baggage_policy :: 3. Hand Baggage"]
+- q: Overbooking ki wajah se mujhe boarding deny kar di, ab kya?
+  expect: ["dgca :: 3.2 Denied Boarding"]
+- q: Naam mein spelling mistake hai ticket pe
+  expect: ["indigo_coc :: Name Correction"]
+- q: Bag damage ho gaya flight mein, claim kaise karun?
+  expect: ["indigo_coc :: 17.3"]
+- q: Wheelchair chahiye airport pe
+  expect: ["indigo_coc :: 10. Customer's Responsibility"]
+- q: मेरी फ्लाइट कैंसिल हो गई, मुझे क्या मिलेगा?
+  expect: ["dgca :: 3.3 Cancellation of Flight", "indigo_coc :: 14."]
+- q: शराब चेक-इन बैग में ले जा सकते हैं?
+  expect: ["indigo_baggage_policy :: 11. Carriage of Alcoholic beverages"]
