@@ -3,6 +3,11 @@
 A laptop-based, multilingual voice assistant proof of concept that answers passenger questions about IndiGo baggage policies, flight changes, refunds, and flight disruptions using public IndiGo and DGCA documents. It supports English, Hindi, and Hinglish, and can look up fictional demo bookings by PNR.
 
 > **Disclaimer:** This is an independent proof of concept built from public documents. It is not affiliated with IndiGo. Demo bookings are fictional and cannot be changed.
+## Demo
+
+Watch the IndiGo Policy Voice Agent in action:
+
+https://github.com/user-attachments/assets/176a6386-7ba7-4d73-b9e6-cee20dfaef83
 
 ## Features
 
